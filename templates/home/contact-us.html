@@ -1,0 +1,117 @@
+{% extends "parent/base.html" %}
+{% load static  %}
+{% block title %}پرسش و پاسخ{% endblock title %}
+
+{% comment %} content {% endcomment %}
+{% block content %}
+        <main class="main rtl text-right">
+            <div class="page-header section-main">
+                <div class="container">
+                    <h1 class="page-title">تماس باما</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="index-2.html"><i class="fa-light fa-home"></i></a></li>
+                        <li class="delimiter">⟩</li>
+                        <li><a href="#">تماس با ما</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-content">
+                <section class="contact-section section-main">
+                    <div class="container">
+                        <div class="section-title-main">
+                            <h3 class="section-subtitle p-relative">
+                                تماس با ما
+                            </h3>
+                            <div class="section-title-wrap">
+                                <h5 class="section-title">
+                                    همواره در کنار    <b>شما</b>هستیم
+                                </h5>
+                            </div>
+                            <p>
+                                اگر سوالی دارید، نیاز به مشاوره حقوقی دارید یا می‌خواهید با ما ارتباط برقرار کنید، از این بخش می‌توانید به‌راحتی اقدام کنید. تیم ما آماده پاسخگویی به تمامی سوالات شما از طریق شماره تماس، ایمیل و فرم تماس آنلاین است. منتظر شنیدن نظرات و سوالات شما هستیم تا بهترین خدمات را ارائه دهیم.
+                            </p>
+                        </div>
+                        <div class="row mt-10">
+                            <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
+                                <div class=" d-flex align-items-center h-100">
+                                    <div>
+                                        <h3>اطلاعات تماس </h3>
+                                        <div class="icon-box icon-box-side">
+                                            <span class="icon-box-icon">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                            </span>
+                                            <div class="icon-box-content rtl">
+                                                <h4 class="icon-box-title">آدرس شرکت</h4>
+                                                <p>تهران، خیابان ولیعصر، بالاتر از میدان ونک، خیابان شریعتی، پلاک 45</p>
+                                            </div>
+                                        </div>
+                                        <div class="icon-box icon-box-side">
+                                            <span class="icon-box-icon">
+                                                <i class="fa-solid fa-phone"></i>
+                                            </span>
+                                            <div class="icon-box-content rtl">
+                                                <h4 class="icon-box-title">تلفن</h4>
+                                                <p>
+                                                    <a href="tel:#"> 0912345678 </a><br>
+                                                    <a href="tel:#"> 0912345678 </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="icon-box icon-box-side">
+                                            <span class="icon-box-icon">
+                                                <i class="fa-solid fa-envelope"></i>
+                                            </span>
+                                            <div class="icon-box-content rtl">
+                                                <h4 class="icon-box-title">ایمیل </h4>
+                                                <p>
+                                                    <a href="mailto:example@example.com">support@example.com</a><br>
+                                                    <a href="mailto:example@example.com">support@example.com</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
+                                <div class="w-100">
+                                    <form class="pl-lg-2" action="#">
+                                        <h3>تماس با ما</h3>
+                                        <p>
+                                            فیلد های ستاره دار الزامی هستند .
+                                        </p>
+                                        <div class="row mb-2">
+                                            <div class="col-md-6 mb-4">
+                                                <input class="form-control" type="text" placeholder="نام *" required>
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <input class="form-control text-left" type="email" placeholder="ایمیل *" required>
+                                            </div>
+                                            <div class="col-12 mb-4">
+                                                <textarea class="form-control" required
+                                                          placeholder="متن*"></textarea>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-gold btn-rounded btn-block">
+                                            ارسال پیام
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="social-link-template text-center mt-10">
+                                <div class="social-links square-link">
+                                    <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
+                                    <a href="#" class="social-link social-twitter fab fa-twitter"></a>
+                                    <a href="#" class="social-link social-linkedin fab fa-instagram"></a>
+                                    <a href="#" class="social-link social-email far fa-envelope"></a>
+                                    <a href="#" class="social-link social-google fab fa-google-plus-g"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Google Maps - Go to the bottom of the page to change settings and map location. -->
+                <div class="grey-section google-map" id="googlemaps" style="height: 386px"></div>
+                <!-- End Map Section -->
+            </div>
+        </main>
+        {% endblock content %}

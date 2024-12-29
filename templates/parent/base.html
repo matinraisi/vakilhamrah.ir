@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+
+<!-- Mirrored from lawyer.riode.ir/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 Dec 2024 06:53:20 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>{% block title %}وکیل همراه {% endblock %}</title>
+    <meta name="keywords" content="HTML5 template" />
+    <meta name="description" content="">
+    <meta name="author" content="Themeparsi">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}">
+    <script>
+        WebFontConfig = {
+            google: { families: ['vazir:400,500,600,700,800'] }
+        };
+        (function (d) {
+            var wf = d.createElement('script'), s = d.scripts[0];
+            wf.src = 'js/webfont.js';
+            wf.async = true;
+            s.parentNode.insertBefore(wf, s);
+        })(document);
+    </script>
+    <!-- Font Awesome Vazir -->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/awesome/css/all.min.css' %}">
+    <link href="{% static 'fonts/vazir/font-vazir.css' %}" rel="stylesheet" />
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" type="text/css" href="{% static 'plugin-js/owl-carousel/owl.carousel.min.css' %}">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <div class="bg-loader">
+        <div class="loader"></div>
+    </div>
+    <div class="page-wrapper">
+
+        {% include "partials/header.html" %}
+
+        <!--End.header-->
+        {% block content %}{% endblock %}
+        <!--End.main-->
+
+
+        {% include "partials/footer.html" %}
+        
+        <div class="sticky-footer sticky-content fix-bottom rtl text-right">
+            <a href="index-2.html" class="sticky-link">
+                <i class="fa-light fa-home"></i>
+                <span>صفحه نخست</span>
+            </a>
+            <a href="demo-cake-shop.html" class="sticky-link">
+                <i class="fa-light fa-sliders-up"></i>
+                <span>دسته بندی</span>
+            </a>
+            <a href="status.html" class="sticky-link">
+                <i class="fa-light fa-chart-line"></i>
+                <span>وضعیت نوبت گیری</span>
+            </a>
+            <a href="account.html" class="sticky-link">
+                <i class="fa-light fa-user"></i>
+                <span>حساب کاربری</span>
+            </a>
+            <div class="header-search hs-toggle dir-up">
+                <a href="#" class="search-toggle sticky-link">
+                    <i class="fa-light fa-search"></i>
+                    <span>جستجو</span>
+                </a>
+                <form action="#" class="input-wrapper">
+                    <input type="text" class="form-control" name="search" autocomplete="off"
+                           placeholder="جستجو ..." required />
+                    <button class="btn btn-search" type="submit">
+                        <i class="fa-light fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i class="fa-solid fa-arrow-up"></i></a>
+        <div class="mobile-menu-wrapper">
+            <div class="mobile-menu-overlay">
+            </div>
+            <a class="mobile-menu-close" href="#"><i class="fa-solid fa-xmark"></i></a>
+            <div class="mobile-menu-container scrollable">
+                <form action="#" class="input-wrapper">
+                    <input type="text" class="form-control" name="search" autocomplete="off"
+                           placeholder="جستجو ..." required />
+                    <button class="btn btn-search" type="submit">
+                        <i class="fa-light fa-search"></i>
+                    </button>
+                </form>
+                <ul class="mobile-menu mmenu-anim">
+                    <li>
+                        <a href="index-2.html">صفحه اصلی</a>
+                    </li>
+                    <li>
+                        <a href="product.html">صفحات قالب</a>
+                        <ul>
+                            <li>
+                                <a href="#">صفحات اصلی</a>
+                                <ul>
+                                    <li><a href="index-2.html">صفحه اصلی 1</a></li>
+                                    <li><a href="index2.html">صفحه اصلی 2</a></li>
+                                    <li><a href="index3.html">صفحه اصلی 3</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="404.html">صفحه 404</a></li>
+                            <li><a href="about-us.html">درباره ما</a></li>
+                            <li>
+                                <a href="#">مقالات</a>
+                                <ul>
+                                    <li><a href="blog-archive.html">آرشیو مقاله ها </a></li>
+                                    <li><a href="blog-list.html">لیست مقالات</a></li>
+                                    <li><a href="blog-single.html">مقاله</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="coming-soon.html">بزودی</a></li>
+                            <li><a href="contact-us.html">تماس با ما</a></li>
+                            <li><a href="faq.html">سولات متداول</a></li>
+                            <li><a href="gallery.html">گالری عکس</a></li>
+                            <li>
+                                <a href="#">ورود و تنظیمات</a>
+                                <ul>
+                                    <li><a href="login.html">ورود </a></li>
+                                    <li><a href="register.html">ثبت نام </a></li>
+                                    <li><a href="password-change.html">تغییر رمز عبور</a></li>
+                                    <li><a href="password-forgot.html">تغییر پسورد</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">اخبار</a>
+                                <ul>
+                                    <li><a href="news-archive.html">آرشیو اخبار</a></li>
+                                    <li><a href="news-list.html">لیست اخبار</a></li>
+                                    <li><a href="news-single.html">اخبار</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">قیمت گذاری</a>
+                                <ul>
+                                    <li><a href="pricing-details.html">جزئیات قیمت گذاری</a></li>
+                                    <li><a href="pricing.html">قیمت گذاری</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">پروژه ها</a>
+                                <ul>
+                                    <li><a href="project-single.html">جزئیات پروژه</a></li>
+                                    <li><a href="project.html">پروژها </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="privacy.html">بزودی</a></li>
+                            <li><a href="request-advice.html">درخواست مشاوره</a></li>
+                            <li><a href="request-assist.html">درخواست همکاری</a></li>
+                            <li>
+                                <a href="#">خدمات</a>
+                                <ul>
+                                    <li><a href="services-single.html">جزئیات خدمات</a></li>
+                                    <li><a href="services.html">لیست خدمات</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="taking-turns.html">نوبت گیری</a></li>
+                            <li>
+                                <a href="#">اعضا</a>
+                                <ul>
+                                    <li><a href="team-single.html">اعضا</a></li>
+                                    <li><a href="team.html">لیست اعضا</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="terms.html">شرایط</a></li>
+                            <li><a href="testimonial.html">گواهینامه ها</a></li>
+                            <li><a href="video.html">ویدئو</a></li>
+                            <li><a href="sound.html">فایل صوتی</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="shop.html" class="active">لیست خدمات</a>
+                        <ul>
+                            <li>
+                                <a href="#">وکیل خانواده</a>
+                                <ul>
+                                    <li><a href="services-single.html">وکیل طلاق </a></li>
+                                    <li><a href="services-single.html">وکیل مهریه</a></li>
+                                    <li><a href="services-single.html">وکیل حضانت</a></li>
+                                    <li><a href="services-single.html">وکیل نفقه </a></li>
+                                    <li><a href="services-single.html">وکیل امورزنان</a></li>
+                                    <li><a href="services-single.html">وکیل مصادره اموال</a></li>
+                                    <li><a href="services-single.html">وکیل اجرت المثل</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">وکیل ملکی</a>
+                                <ul>
+                                    <li><a href="services-single.html">وکیل طلاق </a></li>
+                                    <li><a href="services-single.html">وکیل مهریه</a></li>
+                                    <li><a href="services-single.html">وکیل حضانت</a></li>
+                                    <li><a href="services-single.html">وکیل نفقه </a></li>
+                                    <li><a href="services-single.html">وکیل امورزنان</a></li>
+                                    <li><a href="services-single.html">وکیل مصادره اموال</a></li>
+                                    <li><a href="services-single.html">وکیل اجرت المثل</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">وکیل حقوقی</a>
+                                <ul>
+                                    <li><a href="services-single.html">وکیل طلاق </a></li>
+                                    <li><a href="services-single.html">وکیل مهریه</a></li>
+                                    <li><a href="services-single.html">وکیل حضانت</a></li>
+                                    <li><a href="services-single.html">وکیل نفقه </a></li>
+                                    <li><a href="services-single.html">وکیل امورزنان</a></li>
+                                    <li><a href="services-single.html">وکیل مصادره اموال</a></li>
+                                    <li><a href="services-single.html">وکیل اجرت المثل</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">وکیل کیفری</a>
+                                <ul>
+                                    <li><a href="services-single.html">وکیل طلاق </a></li>
+                                    <li><a href="services-single.html">وکیل مهریه</a></li>
+                                    <li><a href="services-single.html">وکیل حضانت</a></li>
+                                    <li><a href="services-single.html">وکیل نفقه </a></li>
+                                    <li><a href="services-single.html">وکیل امورزنان</a></li>
+                                    <li><a href="services-single.html">وکیل مصادره اموال</a></li>
+                                    <li><a href="services-single.html">وکیل اجرت المثل</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="blog-list.html">مقالات</a></li>
+                    <li><a href="faq.html">سولات متداول</a></li>
+                    <li><a href="about-us.html">درباره ما</a></li>
+                    <li><a href="contact-us.html">تماس با ما </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Plugins JS File -->
+    <script src="{% static 'plugin-js/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'plugin-js/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'plugin-js/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+    <!-- Main JS File -->
+    <script src="{% static 'js/main.min.js' %}"></script>
+    <script src="{% static 'js/chat.js' %}"></script>
+    <script>
+        window.addEventListener('load', function () {
+            const loaderContainer = document.querySelector('.bg-loader');
+            loaderContainer.classList.add('hide');
+        });
+    </script>
+</body>
+
+<!-- Mirrored from lawyer.riode.ir/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 Dec 2024 06:53:45 GMT -->
+</html>
