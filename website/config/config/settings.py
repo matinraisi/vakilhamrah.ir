@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # local App
-    
+    'Authentication',
     'home',
 ]
 
@@ -65,6 +65,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'Authentication.context_processors.signin',
+                'Authentication.context_processors.signup',
+
             ],
         },
     },
