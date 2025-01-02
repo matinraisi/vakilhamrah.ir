@@ -61,5 +61,19 @@ class BillRequest(models.Model):
     def __str__(self):
         return self.username
     
-# class News(models.Model):
+class News(models.Model):
+    images = models.ImageField(upload_to="news_images")
+    title = models.CharField(max_length=100)
+    content = RichTextField()
+    date = models.DateField(auto_now_add=True)
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
     
+class LegalFiles(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    file = models.FileField(upload_to='legal_files')
+    def __str__(self):
+        return self.file.name

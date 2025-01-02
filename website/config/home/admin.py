@@ -18,4 +18,5 @@ class ProfileAdmin(admin.ModelAdmin):
 
 admin.site.register(BillRequest)
 admin.site.register(QaA)
+admin.site.register(News)
 
