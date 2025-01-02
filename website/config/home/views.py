@@ -1,11 +1,9 @@
 from django.shortcuts import redirect, render
-
 from .models import * 
 from .forms import *
 # Create your views here.
 
 def index(request):
-    
     return render (request ,"home/index.html")
 def contact(request):
     form = ContactUsForm()
@@ -31,3 +29,7 @@ def faq(request):
     return render (request ,"home/faq.html",{'form':form})
 def about(request):
     return render (request ,"home/about-us.html")
+
+
+def detailvakil(request):
+    return render(request , "home/DetailsVakil.html"),
