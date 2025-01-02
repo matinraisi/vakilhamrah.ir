@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'Authentication.context_processors.signin',
                 'Authentication.context_processors.signup',
+                'home.context_processors.header_context',
 
             ],
         },

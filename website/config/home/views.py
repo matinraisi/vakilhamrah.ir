@@ -1,10 +1,26 @@
 from django.shortcuts import redirect, render
 from .models import * 
 from .forms import *
+from django.http import FileResponse
+from django.shortcuts import get_object_or_404
+import os
 # Create your views here.
 
+def download_file(request, file_id):
+    # پیدا کردن فایل از روی id یا هر پارامتر دیگر
+    file_path = get_object_or_404(LegalFiles, id=file_id).file.path  # فرض کنید فیلد file در مدل وجود دارد
+    
+    # بررسی وجود فایل
+    if os.path.exists(file_path):
+        return FileResponse(open(file_path, 'rb'), as_attachment=True, filename=os.path.basename(file_path))
+    else:
+        from django.http import Http404
+        raise Http404("File not found.")
+
 def index(request):
-    return render (request ,"home/index.html")
+    legalfiles = LegalFiles.objects.all()
+    lawyertp = LawyerType.objects.all()
+    return render (request ,"home/index.html",)
 def contact(request):
     form = ContactUsForm()
     if request.method == 'POST':
@@ -32,4 +48,5 @@ def about(request):
 
 
 def detailvakil(request):
-    return render(request , "home/DetailsVakil.html"),
+    return render(request ,"home/DetailsVakil.html")
+

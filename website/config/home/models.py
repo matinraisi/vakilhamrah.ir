@@ -1,12 +1,16 @@
 from django.db import models
-from django.contrib.auth.models import User
 from Authentication.models import Profile
 from ckeditor.fields import RichTextField
 
 
-    
+class LawyerType(models.Model): 
+    name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name  
+        
 class Lawyer(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    lawyer_type = models.ForeignKey(LawyerType,on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
@@ -14,26 +18,23 @@ class Lawyer(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=10)
-    experience = models.TextField()
+    experience = RichTextField()
     date = models.DateField()
     image = models.ImageField(upload_to='lawyer_images')
-    sb_types = (
-        ('fa', 'خانوادگی'),
-        ('ju', 'قضایی'),
-        ('ma', 'مدنی'),
-        ('je', 'جنایی'),)
-    subject_type = models.CharField(max_length=100, choices=sb_types)
 
     def __str__(self):
         return self.name
-    
+
+ 
+
 class QaA(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     sb_types = (
         ('fa', 'خانوادگی'),
         ('ju', 'قضایی'),
         ('ma', 'مدنی'),
-        ('je', 'جنایی'),)
+        ('je', 'جنایی'),
+        ('ot', 'سایر'),)
 
     full_name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -67,13 +68,13 @@ class News(models.Model):
     content = RichTextField()
     date = models.DateField(auto_now_add=True)
 
-class Category(models.Model):
+class LegalCategory(models.Model):
     name = models.CharField(max_length=100)
     def __str__(self):
         return self.name
     
 class LegalFiles(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(LegalCategory, on_delete=models.CASCADE)
     file = models.FileField(upload_to='legal_files')
     def __str__(self):
         return self.file.name

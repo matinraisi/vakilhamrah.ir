@@ -8,5 +8,6 @@ urlpatterns = [
     path('faq/', views.faq , name="faq"),
     path('contact/', views.contact , name="contact"),
     path('details/', views.detailvakil , name="details"),
-] 
+    path('download/<int:file_id>/', views.download_file, name='download_file'),
+]
 
