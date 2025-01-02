@@ -120,40 +120,42 @@
                                                 <p class=" text-white">اگر جواب سوال هایتان را پیدا نکردید از کارشناسان ما بخواهید.</p>
                                             </div>
                                         </div>
-                                        <form action="#">
+                                        <form method="post">
+                                            {% csrf_token %}
                                             <div class="row">
                                                 <div class="col-md-6 form-group mb-3">
-                                                    <input type="text" class="form-control text-left ltr" id="first-name" name="first-name" placeholder="نام و نام خانوادگی" required="">
+                                                    {{ form.full_name }}
                                                 </div>
                                                 <div class="col-md-6 form-group mb-3">
-                                                    <input type="email" class="form-control text-left" id="register-email" name="register-email" placeholder="آدرس ایمیل" required="">
+                                                    {{ form.email }}
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6 form-group mb-3">
-                                                    <input type="text" class="form-control text-left ltr" id="first-name" name="first-name" placeholder="موضوع" required="">
+                                                    {{ form.subject }}
                                                 </div>
                                                 <div class="col-md-6 form-group mb-3">
                                                     <div>
-                                                        <select name="qustion" class="form-control">
-                                                            <option selected="">خانوادگی</option>
-                                                            <option>قضایی</option>
-                                                            <option>مدنی</option>
-                                                            <option>جنایی</option>
-                                                        </select>
+                                                        {{ form.subject_type }}
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 form-footer">
                                                 <div class="form-checkbox">
-                                                    <input type="checkbox" class="custom-checkbox" id="register-agree" name="register-agree" required="">
+                                                    {{ form.is_read }}
                                                     <label class="form-control-label text-white" for="register-agree">قوانین و مقررات را می پذیرم .</label>
                                                 </div>
                                             </div>
-                                            <textarea id="reply-message" cols="30" rows="6" class="form-control mb-4" placeholder="پیام*" required=""></textarea>
+                                            {{ form.message }}
+                                            {% if user.is_authenticated %}
                                             <button class="btn btn-gold btn-block btn-rounded" type="submit">
                                                 ثبت سوال
                                             </button>
+                                            {% else %}
+                                            <label class="form-control-label text-white" for="register-agree">لطفا وارد شوید</label>
+
+
+                                            {% endif %}
                                         </form>
                                     </div>
                                 </div>

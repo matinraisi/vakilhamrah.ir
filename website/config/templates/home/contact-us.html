@@ -74,24 +74,24 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
                                 <div class="w-100">
-                                    <form class="pl-lg-2" action="#">
+                                    <form class="pl-lg-2" method='post'>
+                                        {% csrf_token %}
                                         <h3>تماس با ما</h3>
                                         <p>
                                             فیلد های ستاره دار الزامی هستند .
                                         </p>
                                         <div class="row mb-2">
                                             <div class="col-md-6 mb-4">
-                                                <input class="form-control" type="text" placeholder="نام *" required>
+                                                {{ form.full_name }}
                                             </div>
                                             <div class="col-md-6 mb-4">
-                                                <input class="form-control text-left" type="email" placeholder="ایمیل *" required>
+                                                {{ form.email }}
                                             </div>
                                             <div class="col-12 mb-4">
-                                                <textarea class="form-control" required
-                                                          placeholder="متن*"></textarea>
+                                                {{ form.message }}
                                             </div>
                                         </div>
-                                        <button class="btn btn-gold btn-rounded btn-block">
+                                        <button class="btn btn-gold btn-rounded btn-block" type="submit">
                                             ارسال پیام
                                         </button>
                                     </form>
