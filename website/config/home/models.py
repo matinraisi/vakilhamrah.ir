@@ -9,7 +9,6 @@ class LawyerType(models.Model):
         return self.name  
         
 class Lawyer(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     lawyer_type = models.ForeignKey(LawyerType,on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField()

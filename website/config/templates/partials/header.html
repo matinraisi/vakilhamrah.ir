@@ -151,7 +151,9 @@
                             <li>
                                 <a href="#">وکلا</a>
                                 <ul>
-                                    <li><a href="services-single.html"> وکیل طلاق</a></li>
+                                    {% for lawyers in lawyertp %}
+                                    <li><a href="services-single.html">{{ lawyers.name }}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </li>
                             <li>
@@ -162,11 +164,11 @@
                             </li>
                             <li>
                                 <a href="#">فایل های حقوقی</a>
-                                {% for files in legalfiles %}
                                 <ul>
+                                    {% for files in legalfiles %}
                                     <li> <a href="{% url 'HomeApp:download_file' files.id %}">{{ files.category }}</a></li>
+                                    {% endfor %}
                                 </ul>
-                                {% endfor %}
                             <li>
                                 <a href="{% url 'HomeApp:faq' %}">پرسش و پاسخ</a>
                             </li>

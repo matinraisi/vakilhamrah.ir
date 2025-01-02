@@ -4,7 +4,6 @@ from .forms import *
 from django.http import FileResponse
 from django.shortcuts import get_object_or_404
 import os
-# Create your views here.
 
 def download_file(request, file_id):
     # پیدا کردن فایل از روی id یا هر پارامتر دیگر
@@ -19,7 +18,7 @@ def download_file(request, file_id):
 
 def index(request):
     legalfiles = LegalFiles.objects.all()
-    lawyertp = LawyerType.objects.all()
+    lawyertp = Lawyer.objects.all()
     return render (request ,"home/index.html",)
 def contact(request):
     form = ContactUsForm()

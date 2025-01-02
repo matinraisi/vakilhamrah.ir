@@ -21,5 +21,7 @@ admin.site.register(QaA)
 admin.site.register(News)
 admin.site.register(LegalFiles)
 admin.site.register(LegalCategory)
+admin.site.register(Lawyer)
+admin.site.register(LawyerType)
 
 
