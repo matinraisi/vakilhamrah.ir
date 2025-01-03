@@ -21,26 +21,11 @@ def download_file(request, file_id):
 def index(request):
     legalfiles = LegalFiles.objects.all()
     lawyertp = Lawyer.objects.all()
-<<<<<<< HEAD
     lawyers = Lawyer.objects.all().order_by('-date')[:4]
     context = {
         'lawyers': lawyers,
     }
     return render (request ,"home/index.html",context)
-=======
-    sm = SabtMoshavereForm()
-    if request.method == 'POST':
-        if 'sm' in request.POST:
-            sm = SabtMoshavereForm(request.POST)
-            print('yeeeeeeeeeeeeeeeeee')
-            if sm.is_valid():
-                instance = sm.save(False)
-                instance.profile = request.user.profile
-                instance.save()
-                sm = SabtMoshavereForm()
-                return redirect('HomeApp:index')
-    return render(request ,"home/index.html",{'sm':sm})
->>>>>>> 7486fb3904f70cfb3b83ee512e0a8fd4191d733d
 
 def contact(request):
     form = ContactUsForm()
@@ -79,3 +64,7 @@ def lawyers_list(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'home/lawyers_list.html', {'page_obj': page_obj})
+
+
+def DadKhastNevisi(request):
+    return render(request,"home/DadKhastNevisi.html")

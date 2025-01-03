@@ -11,6 +11,6 @@ urlpatterns = [
     path('download/<int:file_id>/', views.download_file, name='download_file'),
     path('detailvakil/<int:lk>/', views.detailvakil, name='detailvakil'),
     path('lawyers_list/', views.lawyers_list, name="lawyers_list"), 
-
+    path('DadKhastNevisi/', views.DadKhastNevisi, name="DadKhastNevisi"), 
 ]
 
