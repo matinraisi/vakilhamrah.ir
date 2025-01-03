@@ -22,11 +22,26 @@ def index(request):
     legalfiles = LegalFiles.objects.all()
     lawyertp = Lawyer.objects.all()
     lawyers = Lawyer.objects.all().order_by('-date')[:4]
+# <<<<<<< HEAD
     context = {
         'lawyers': lawyers,
     }
     return render (request ,"home/index.html",context)
 
+# =======
+    sm = SabtMoshavereForm()
+    if request.method == 'POST':
+        if 'sm' in request.POST:
+            sm = SabtMoshavereForm(request.POST)
+            print('yeeeeeeeeeeeeeeeeee')
+            if sm.is_valid():
+                instance = sm.save(False)
+                instance.profile = request.user.profile
+                instance.save()
+                sm = SabtMoshavereForm()
+                return redirect('HomeApp:index')
+    return render(request ,"home/index.html",{'sm':sm,'lawyers': lawyers})
+# >>>>>>> 356bddf320320a201149e1fbf31bdc58944969e3
 def contact(request):
     form = ContactUsForm()
     if request.method == 'POST':
@@ -58,6 +73,7 @@ def about(request):
 def detailvakil(request, lk):
     lawyer = get_object_or_404(Lawyer, id=lk)
     return render(request, "home/DetailsVakil.html", {'lawyer': lawyer})
+
 def lawyers_list(request):
     lawyers = Lawyer.objects.all()
     paginator = Paginator(lawyers, 6)  # تعداد وکلا در هر صفحه
@@ -66,5 +82,23 @@ def lawyers_list(request):
     return render(request, 'home/lawyers_list.html', {'page_obj': page_obj})
 
 
+# <<<<<<< HEAD
 def DadKhastNevisi(request):
     return render(request,"home/DadKhastNevisi.html")
+# =======
+def vakil_profile(request):
+    return render(request,"home/vakil_profile.html")
+
+def sabt_moshaver(request):
+    form = SabtMoshavereForm()
+    if request.method == 'POST':
+        form = SabtMoshavereForm(request.POST)
+        if form.is_valid():
+            instance = form.save(False)
+            instance.profile = request.user.profile
+            instance.save()
+            return redirect()
+    return render(request,'home/taking-turns.html',{'form':form})
+
+
+# >>>>>>> 356bddf320320a201149e1fbf31bdc58944969e3
