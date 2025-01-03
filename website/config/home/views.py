@@ -20,6 +20,7 @@ def index(request):
     legalfiles = LegalFiles.objects.all()
     lawyertp = Lawyer.objects.all()
     return render (request ,"home/index.html",)
+
 def contact(request):
     form = ContactUsForm()
     if request.method == 'POST':
@@ -29,6 +30,7 @@ def contact(request):
             redirect('HomeApp:contact')
 
     return render (request ,"home/contact-us.html",{'form':form})
+
 def faq(request):
     form = QaAForm()
     if request.method == 'POST':
@@ -42,6 +44,7 @@ def faq(request):
             redirect('HomeApp:faq')
             
     return render (request ,"home/faq.html",{'form':form})
+
 def about(request):
     return render (request ,"home/about-us.html")
 
@@ -53,3 +56,5 @@ def detailvakil(request,lk):
 def lawyers_list(request):
     lawyers = Lawyer.objects.all()
     return render(request, 'home/lawyers_list.html', {'lawyers': lawyers})
+
+
