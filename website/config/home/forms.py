@@ -29,8 +29,18 @@ class DadkhastNevisiForm(forms.ModelForm):
         model = DadKhastNevisi
         fields = ['subject_type','title','subject','file']
         widgets = {
-            'subject_type':forms.Select()
+            'title':forms.TextInput(attrs={'class':'form-control','placeholder':''}),
+            'subject_type':forms.Select(attrs={'class':'form-control','placeholder':''}),
+            'subject':forms.Textarea(attrs={'class':'form-control','placeholder':''}),
+            'file':forms.FileInput(attrs={'class':'form-control','accept':".pdf,.doc,.docx,.txt",'placeholder':''}),
         }
+    def clean(self):
+        cleaned_data = super().clean()
+        field1 = cleaned_data.get('subject')
+        field2 = cleaned_data.get('file')
+
+        if not field1 and not field2:
+            raise forms.ValidationError("حداقل یکی از فیلدهای subject یا file باید پر باشد.")
 
 class SabtMoshavereForm(forms.ModelForm):
     class Meta:

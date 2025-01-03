@@ -66,7 +66,7 @@ class DadKhastNevisi(models.Model):
     profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
     subject_type = models.ForeignKey(DadKhastCaregory,models.CASCADE)
     title = models.CharField(max_length=40)
-    subject = models.CharField(max_length=50)
+    subject = models.TextField()
     file = models.FileField(upload_to='dadkhast_request')
     date = models.DateTimeField(auto_now_add=True)
     def __str__(self):

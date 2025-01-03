@@ -80,9 +80,9 @@ def vakil_profile(request):
     return render(request,"home/vakil_profile.html")
 
 def sabt_moshaver(request):
-    form = SabtMoshavereForm()
+    form = DadkhastNevisiForm()
     if request.method == 'POST':
-        form = SabtMoshavereForm(request.POST)
+        form = DadkhastNevisiForm(request.POST)
         if form.is_valid():
             instance = form.save(False)
             instance.profile = request.user.profile
