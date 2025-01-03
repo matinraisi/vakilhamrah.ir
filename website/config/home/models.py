@@ -18,7 +18,7 @@ class Lawyer(models.Model):
     state = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=10)
     experience = RichTextField()
-    date = models.DateField()
+    date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='lawyer_images')
 
     def __str__(self):
@@ -46,21 +46,31 @@ class QaA(models.Model):
     def __str__(self):
         return f'{self.full_name} - {self.message[0:12]}'
     
+
 class ContactUs(models.Model):
     full_name = models.CharField(max_length=20)
     email = models.EmailField()
     message = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.full_name
-
-class BillRequest(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    username = models.CharField(max_length=100)
-    file = models.FileField(upload_to='bill_requests')
-
-    def __str__(self):
-        return self.username
     
+class DadKhastCaregory(models.Model):
+    type = models.CharField(max_length=20)
+
+class DadKhastNevisi(models.Model):
+    profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    subject_type = models.ForeignKey(DadKhastCaregory,models.CASCADE)
+    title = models.CharField(max_length=40)
+    subject = models.CharField(max_length=50)
+    file = models.FileField(upload_to='bill_requests')
+    date = models.DateTimeField(auto_now_add=True)
+
+class SabtMoshavere(models.Model):
+    profile = models.ForeignKey(Profile,models.CASCADE)
+    phone_number = models.IntegerField()
+    date = models.DateTimeField(auto_now_add=True)
+
 class News(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="news_images")
