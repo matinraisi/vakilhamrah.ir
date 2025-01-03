@@ -62,7 +62,8 @@ class BillRequest(models.Model):
         return self.username
     
 class News(models.Model):
-    images = models.ImageField(upload_to="news_images")
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="news_images")
     title = models.CharField(max_length=100)
     content = RichTextField()
     date = models.DateField(auto_now_add=True)

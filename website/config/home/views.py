@@ -46,6 +46,10 @@ def about(request):
     return render (request ,"home/about-us.html")
 
 
-def detailvakil(request):
-    return render(request ,"home/DetailsVakil.html")
+def detailvakil(request,lk):
+    lawyer = Lawyer.objects.get(id=lk)
+    return render(request ,"home/DetailsVakil.html",{'lawyer':lawyer})
 
+def lawyers_list(request):
+    lawyers = Lawyer.objects.all()
+    return render(request, 'home/lawyers_list.html', {'lawyers': lawyers})
