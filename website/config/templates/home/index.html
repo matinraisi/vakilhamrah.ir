@@ -219,44 +219,25 @@
                 </div>
             </div>
         </section>
-        <section class="member-main-wrap  section-main">
+        <section class="member-main-wrap section-main">
             <div class="container">
                 <div class="row cols-xs-2 cols-1 cols-md-4">
-                    <a href="team-single.html" class="member-link text-center">
+                    {% for lawyer in lawyers %}
+                    <a href="{% url 'HomeApp:detailvakil' lawyer.id %}" class="member-link text-center">
                         <figure class="banner-radius">
-                            <img src="{% static 'images/team/team1.jpg' %}" alt="اعضا تیم" width="280" height="280">
+                            <img src="{{ lawyer.image.url }}" alt="تصویر {{ lawyer.name }}" width="280" height="280">
                         </figure>
-                        <h4 class="image-box-name"> نسرین طاهری</h4>
-                        <h6 class="image-box-job">مشاور حقوقی</h6>
-                        
+                        <h4 class="image-box-name">{{ lawyer.name }}</h4>
+                        <h5 class="image-box-job">{{ lawyer.lawyer_type.name }}</h5>
                     </a>
-                    <a href="team-single.html" class="member-link text-center">
-                        <figure class="banner-radius">
-                            <img src="{% static 'images/team/team2.jpg' %}" alt="اعضا تیم" width="280" height="280">
-                        </figure>
-                        <h4 class="image-box-name">مریم موسوی</h4>
-                        <h5 class="image-box-job">وکیل دعاوی خانوادگی</h5>
-                        
-                    </a>
-                    <a href="team-single.html" class="member-link text-center">
-                        <figure class="banner-radius">
-                            <img src="{% static 'images/team/team3.jpg' %}" alt="اعضا تیم" width="280" height="280">
-                        </figure>
-                        <h4 class="image-box-name">زهرا جلالی</h4>
-                        <h5 class="image-box-job"> وکیل دعاوی تجاری</h5>
-                        
-                    </a>
-                    <a href="team-single.html" class="member-link text-center">
-                        <figure class="banner-radius">
-                            <img src="{% static 'images/team/team4.jpg' %}" alt="اعضا تیم" width="280" height="280">
-                        </figure>
-                        <h4 class="image-box-name"> امیرحسین شریفی</h4>
-                        <h5 class="image-box-job">وکیل پایه یک دادگستری</h5>
-                        
-                    </a>
+                    {% empty %}
+                    <p>هیچ وکیلی برای نمایش موجود نیست.</p>
+                    {% endfor %}
                 </div>
+                <a href="about-us.html" class="btn btn-primary">مشاهده همه</a>
             </div>
         </section>
+        
         <section class="contacts-main-wrap section-main">
             <div class="container contacts-main">
                 <div class="col-xl-7 col-md-6 col-sm-12 contacts-main-right">

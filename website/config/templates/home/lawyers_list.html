@@ -1,0 +1,82 @@
+{% extends "parent/base.html" %}
+{% load static  %}
+{% block title %}پروفایل وکیل{% endblock title %}
+{% comment %} content {% endcomment %}
+{% block content %}
+<main class="main rtl text-right">
+    <div class="page-header section-main">
+        <div class="container">
+            <h1 class="page-title">تیم ما</h1>
+            <ul class="breadcrumb">
+                <li><a href="index-2.html"><i class="fa-light fa-home"></i></a></li>
+                <li class="delimiter">⟩</li>
+                <li><a href="#">تیم ما</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-content">
+        <section>
+            <div class="container">
+                <div class="section-main">
+                    <div class="section-title-main">
+                        <h3 class="section-subtitle p-relative">
+                            تیم وکالت
+                        </h3>
+                        <div class="section-title-wrap">
+                            <h5 class="section-title">
+                                همکارانی در مسیر   <b>عدالت </b>
+                            </h5>
+                        </div>
+                    </div>
+                    <p>
+                        تیم وکالت ما متشکل از گروهی از وکلای با تجربه، مشاوران حقوقی متخصص و کارشناسان خبره است که همگی هدفی مشترک دارند: ارائه خدمات حقوقی باکیفیت و موثر به تمامی مراجعین. اعضای این تیم نه تنها دارای دانش حقوقی گسترده هستند، بلکه با رویکردی انسانی و مسئولانه به هر پرونده می‌نگرند. ما معتقدیم که پشت هر پرونده، داستانی از زندگی، چالش‌ها و امیدها نهفته است، و به همین دلیل با تعهد و دقت، هر مورد را بررسی و پیگیری می‌کنیم.
+                    </p>
+                    <p>
+                        هر یک از اعضای تیم ما در حوزه‌ای خاص تخصص دارند، از حقوق خانواده و دعاوی مدنی گرفته تا حقوق تجارت و مشاوره در پرونده‌های پیچیده کیفری. این تنوع تخصص به ما امکان می‌دهد تا به‌طور کامل نیازهای حقوقی مشتریان را پاسخ دهیم. ما به عنوان یک تیم، به هم‌افزایی باور داریم و در هر پرونده با همفکری و همکاری، بهترین راه‌حل‌های قانونی را ارائه می‌کنیم. اگر به دنبال تیمی حرفه‌ای و دلسوز هستید که بتواند به شما در مسیر دستیابی به عدالت کمک کند، ما آماده‌ایم تا با تمام توان در کنار شما باشیم.
+                    </p>
+                </div>
+                <div class="row cols-xs-2 cols-sm-3 cols-md-4 section-main">
+                    {% for lawyer in page_obj %}
+                    <div class="image-box appear-animate fadeInLeftShorter appear-animation-visible" data-animation-options="{'name': 'fadeInLeftShorter'}" style="animation-duration: 1.2s;">
+                        <a href="{% url 'HomeApp:detailvakil' lawyer.id %}" class="member-link">
+                            <figure class="banner-radius">
+                                <img src="{{ lawyer.image.url }}" alt="تصویر {{ lawyer.name }}" width="280" height="280">
+                            </figure>
+                            <h4 class="image-box-name">{{ lawyer.name }}</h4>
+                            <h6 class="image-box-job">{{ lawyer.lawyer_type.name }}</h6>
+                        </a>
+                    </div>
+                    {% empty %}
+                    <p>هیچ وکیلی برای نمایش موجود نیست.</p>
+                    {% endfor %}
+                </div>
+                
+                <div class="pagination-wrap">
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                        <li><a href="?page={{ page_obj.previous_page_number }}" class="prev">&laquo;</a></li>
+                        {% endif %}
+                
+                        {% for num in page_obj.paginator.page_range %}
+                        <li>
+                            <a href="?page={{ num }}" class="{% if page_obj.number == num %}active{% endif %}">
+                                {{ num }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                
+                        {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}" class="next">&raquo;</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+        
+            </div>
+        </section>
+        
+    
+    </div>
+
+</main>
+
+{% endblock content %}
