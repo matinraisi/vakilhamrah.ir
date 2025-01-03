@@ -80,6 +80,6 @@ def vakil_profile(request):
     return render(request,"home/vakil_profile.html")
 
 def sabt_moshaver(request):
-    return render
+    return render(request,'')
 
 
