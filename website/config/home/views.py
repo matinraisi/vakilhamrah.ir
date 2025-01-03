@@ -58,3 +58,5 @@ def lawyers_list(request):
     return render(request, 'home/lawyers_list.html', {'lawyers': lawyers})
 
 
+def vakil_profile(request):
+    return render(request,"home/vakil_profile.html")

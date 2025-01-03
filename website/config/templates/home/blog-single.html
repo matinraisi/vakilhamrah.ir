@@ -9,7 +9,7 @@
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="قالب وکیل الرعایا- قالب Html ">
     <meta name="author" content="Themeparsi">
-    <link rel="icon" type="image/png" href="images/icons/favicon.png">
+    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}">
     <script>
         WebFontConfig = {
             google: { families: ['vazir:400,500,600,700'] }
@@ -22,13 +22,13 @@
         })(document);
     </script>
     <!-- Font Awesome Vazir -->
-    <link rel="stylesheet" type="text/css" href="fonts/awesome/css/all.min.css">
-    <link href="fonts/vazir/font-vazir.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/awesome/css/all.min.css' %}">
+    <link href="{% static 'fonts/vazir/font-vazir.css' %}" rel="stylesheet" />
     <!-- Plugins CSS File -->
-    <link rel="stylesheet" type="text/css" href="plugin-js/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="plugin-js/owl-carousel/owl.carousel.min.css">    
+    <link rel="stylesheet" type="text/css" href="{% static 'plugin-js/animate/animate.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugin-js/owl-carousel/owl.carousel.min.css' %}">    
     <!-- Main CSS File -->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
 <body>
     <div class="bg-loader">
@@ -159,7 +159,7 @@
                                 <i class="fa-solid fa-bars-staggered"></i>
                             </a>
                             <a href="index-2.html" class="logo">
-                                <img src="images/logo-white.png" alt="لوگو قالب وکیل الرعایا" width="154" height="43">
+                                <img src="{% static 'images/logo-white.png' %}" alt="لوگو قالب وکیل الرعایا" width="154" height="43">
                             </a>
                             <nav class="main-nav">
                                 <ul class="menu">
@@ -329,7 +329,7 @@
                                     <article class="post-single">
                                         <figure class="post-media">
                                             <a href="#">
-                                                <img src="images/blog/4_lg.jpg" width="880" height="450" alt="عکس از گالری" />
+                                                <img src="{% static 'images/blog/4_lg.jpg' %}" width="880" height="450" alt="عکس از گالری" />
                                             </a>
                                         </figure>
                                         <div class="date-main">
@@ -396,7 +396,7 @@
                                         <div class="post">
                                             <figure class="post-media">
                                                 <a href="#">
-                                                    <img src="images/blog/single/3.jpg" width="380" height="250"
+                                                    <img src="{% static 'images/blog/single/3.jpg' %}" width="380" height="250"
                                                          alt="عکس از گالری" />
                                                 </a>
                                                 <div class="post-calendar">
@@ -422,7 +422,7 @@
                                         <div class="post">
                                             <figure class="post-media">
                                                 <a href="#">
-                                                    <img src="images/blog/single/4.jpg" width="380" height="250"
+                                                    <img src="{% static 'images/blog/single/4.jpg' %}" width="380" height="250"
                                                          alt="عکس از گالری" />
                                                 </a>
                                                 <div class="post-calendar">
@@ -448,7 +448,7 @@
                                         <div class="post">
                                             <figure class="post-media">
                                                 <a href="#">
-                                                    <img src="images/blog/single/5.jpg" width="380" height="250"
+                                                    <img src="{% static 'images/blog/single/5.jpg' %}" width="380" height="250"
                                                          alt="عکس از گالری" />
                                                 </a>
                                                 <div class="post-calendar">
@@ -474,7 +474,7 @@
                                         <div class="post">
                                             <figure class="post-media">
                                                 <a href="#">
-                                                    <img src="images/blog/single/4.jpg" width="380" height="250"
+                                                    <img src="{% static 'images/blog/single/4.jpg' %}" width="380" height="250"
                                                          alt="عکس از گالری" />
                                                 </a>
                                                 <div class="post-calendar">
@@ -518,7 +518,7 @@
                                             <div class="comment">
                                                 <figure class="comment-media">
                                                     <a href="#">
-                                                        <img src="images/agents/1.jpg" alt="تصویر پروفایل">
+                                                        <img src="{% static 'images/agents/1.jpg' %}" alt="تصویر پروفایل">
                                                     </a>
                                                 </figure>
                                                 <div class="comment-body rtl text-right">
@@ -541,7 +541,7 @@
                                                     <div class="comment">
                                                         <figure class="comment-media">
                                                             <a href="#">
-                                                                <img src="images/agents/2.jpg" alt="تصویر پروفایل">
+                                                                <img src="{% static 'images/agents/2.jpg' %}" alt="تصویر پروفایل">
                                                             </a>
                                                         </figure>
                                                         <div class="comment-body rtl text-right">
@@ -566,7 +566,7 @@
                                             <div class="comment">
                                                 <figure class="comment-media">
                                                     <a href="#">
-                                                        <img src="images/agents/3.jpg" alt="تصویر پروفایل">
+                                                        <img src="{% static 'images/agents/3.jpg' %}" alt="تصویر پروفایل">
                                                     </a>
                                                 </figure>
                                                 <div class="comment-body rtl text-right">
@@ -631,7 +631,7 @@
                                     <div class="sticky-sidebar" data-sticky-options="{'top':0, 'bottom': 70}">
                                         <div class="widget widget-collapsible widget-advertisement">
                                             <div class="widget-body ">
-                                                <img src="images/bg/widget-bg.jpg" />
+                                                <img src="{% static 'images/bg/widget-bg.jpg' %}" />
                                                 <div class="advertisement-info">
                                                     <h3>مشاوره رایگان</h3>
                                                     <br />
@@ -729,7 +729,7 @@
                                                     <div class="post post-list-sm">
                                                         <figure class="post-media">
                                                             <a href="blog-list.html">
-                                                                <img src="images/blog/1_xs.jpg" width="90" height="90"
+                                                                <img src="{% static 'images/blog/1_xs.jpg' %}" width="90" height="90"
                                                                      alt="عکس از گالری" />
                                                             </a>
                                                         </figure>
@@ -750,7 +750,7 @@
                                                     <div class="post post-list-sm">
                                                         <figure class="post-media">
                                                             <a href="blog-list.html">
-                                                                <img src="images/blog/2_xs.jpg" width="90" height="90"
+                                                                <img src="{% static 'images/blog/2_xs.jpg' %}" width="90" height="90"
                                                                      alt="عکس از گالری" />
                                                             </a>
                                                         </figure>
@@ -771,7 +771,7 @@
                                                     <div class="post post-list-sm">
                                                         <figure class="post-media">
                                                             <a href="blog-list.html">
-                                                                <img src="images/blog/3_xs.jpg" width="90" height="90"
+                                                                <img src="{% static 'images/blog/3_xs.jpg' %}" width="90" height="90"
                                                                      alt="عکس از گالری" />
                                                             </a>
                                                         </figure>
@@ -820,7 +820,7 @@
                         <div class="row align-items-center">
                             <div class="col-lg-3">
                                 <a href="index-2.html" class="logo-footer">
-                                    <img src="images/logo-footer.png" alt="لوگو قالب وکیل الرعایا" width="154" height="43">
+                                    <img src="{% static 'images/logo-footer.png' %}" alt="لوگو قالب وکیل الرعایا" width="154" height="43">
                                 </a>
                             </div>
                             <div class="col-lg-9">
@@ -866,7 +866,7 @@
                                     <h6 class="widget-title mt-0">آخرین اخبار</h6>
                                     <div class="recent-post">
                                         <div class="recent-post-image">
-                                            <img class="img-fluid" src="images/news/01.jpg" alt="تصویر نمونه مرتبط با خبر">
+                                            <img class="img-fluid" src="{% static 'images/news/01.jpg' %}" alt="تصویر نمونه مرتبط با خبر">
                                         </div>
                                         <div class="recent-post-info">
                                             <a href="news-single.html">عنوانی برای عکس </a>
@@ -875,7 +875,7 @@
                                     </div>
                                     <div class="recent-post">
                                         <div class="recent-post-image">
-                                            <img class="img-fluid" src="images/news/02.jpg" alt="تصویر نمونه مرتبط با خبر">
+                                            <img class="img-fluid" src="{% static 'images/news/02.jpg' %}" alt="تصویر نمونه مرتبط با خبر">
                                         </div>
                                         <div class="recent-post-info">
                                             <a href="news-single.html">عنوانی برای عکس </a>
@@ -884,7 +884,7 @@
                                     </div>
                                     <div class="recent-post">
                                         <div class="recent-post-image">
-                                            <img class="img-fluid" src="images/news/03.jpg" alt="تصویر نمونه مرتبط با خبر">
+                                            <img class="img-fluid" src="{% static 'images/news/03.jpg' %}" alt="تصویر نمونه مرتبط با خبر">
                                         </div>
                                         <div class="recent-post-info">
                                             <a href="news-single.html">عنوانی برای عکس </a>
@@ -910,8 +910,8 @@
                                         </div>
                                     </div>
                                     <figure class="widget-body row">
-                                        <div class="nemad-box"><img src="images/enemad.png" alt="نماد اعتماد الکترونیک"></div>
-                                        <div class="nemad-box"><img src="images/samandehi.png" alt="نماد ساماندهی"></div>
+                                        <div class="nemad-box"><img src="{% static 'images/enemad.png' %}" alt="نماد اعتماد الکترونیک"></div>
+                                        <div class="nemad-box"><img src="{% static 'images/samandehi.png' %}" alt="نماد ساماندهی"></div>
                                     </figure>
                                 </div>
                             </div>
@@ -1129,12 +1129,12 @@
             </div>
         </div>
     </div>
-    <script src="plugin-js/jquery/jquery.min.js"></script>
-    <script src="plugin-js/sticky/sticky.min.js"></script>
-    <script src="plugin-js/owl-carousel/owl.carousel.min.js"></script>
+    <script src="{% static 'plugin-js/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'plugin-js/sticky/sticky.min.js' %}"></script>
+    <script src="{% static 'plugin-js/owl-carousel/owl.carousel.min.js' %}"></script>
     <!-- Main JS File -->
-    <script src="js/main.min.js"></script>
-    <script src="js/chat.js"></script>
+    <script src="{% static 'js/main.min.js' %}"></script>
+    <script src="{% static 'js/chat.js' %}"></script>
     <script>
         window.addEventListener('load', function () {
             const loaderContainer = document.querySelector('.bg-loader');
