@@ -1,7 +1,7 @@
 from django.db import models
 from Authentication.models import Profile
 from ckeditor.fields import RichTextField
-
+from django_resized import ResizedImageField
 
 class LawyerType(models.Model): 
     name = models.CharField(max_length=100)
@@ -19,7 +19,7 @@ class Lawyer(models.Model):
     zip_code = models.CharField(max_length=10)
     experience = RichTextField()
     date = models.DateField()
-    image = models.ImageField(upload_to='lawyer_images')
+    image = ResizedImageField(upload_to='lawyer_images' , crop=['middle', 'center'] , size=[300,300],quality=75)
 
     def __str__(self):
         return self.name

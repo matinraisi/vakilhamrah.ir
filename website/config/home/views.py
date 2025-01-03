@@ -4,6 +4,8 @@ from .forms import *
 from django.http import FileResponse
 from django.shortcuts import get_object_or_404
 import os
+from django.core.paginator import Paginator
+
 
 def download_file(request, file_id):
     # پیدا کردن فایل از روی id یا هر پارامتر دیگر
@@ -19,7 +21,11 @@ def download_file(request, file_id):
 def index(request):
     legalfiles = LegalFiles.objects.all()
     lawyertp = Lawyer.objects.all()
-    return render (request ,"home/index.html",)
+    lawyers = Lawyer.objects.all().order_by('-date')[:4]
+    context = {
+        'lawyers': lawyers,
+    }
+    return render (request ,"home/index.html",context)
 
 def contact(request):
     form = ContactUsForm()
@@ -49,17 +55,12 @@ def about(request):
     return render (request ,"home/about-us.html")
 
 
-def detailvakil(request,lk):
-    lawyer = Lawyer.objects.get(id=lk)
-    return render(request ,"home/DetailsVakil.html",{'lawyer':lawyer})
-
+def detailvakil(request, lk):
+    lawyer = get_object_or_404(Lawyer, id=lk)
+    return render(request, "home/DetailsVakil.html", {'lawyer': lawyer})
 def lawyers_list(request):
     lawyers = Lawyer.objects.all()
-    return render(request, 'home/lawyers_list.html', {'lawyers': lawyers})
-
-
-def vakil_profile(request):
-    return render(request,"home/vakil_profile.html")
-
-def all_vakill(request):
-    return render(request,"home/all_vakill.html")
+    paginator = Paginator(lawyers, 6)  # تعداد وکلا در هر صفحه
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'home/lawyers_list.html', {'page_obj': page_obj})
