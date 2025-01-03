@@ -17,6 +17,7 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'is_lawyer')  # فیلدهایی که می‌خواهید در لیست نمایش داده شوند
 
 admin.site.register(DadKhastCaregory)
+admin.site.register(SabtMoshavere)
 admin.site.register(DadKhastNevisi)
 admin.site.register(QaA)
 admin.site.register(News)

@@ -19,7 +19,18 @@ def download_file(request, file_id):
 def index(request):
     legalfiles = LegalFiles.objects.all()
     lawyertp = Lawyer.objects.all()
-    return render (request ,"home/index.html",)
+    sm = SabtMoshavereForm()
+    if request.method == 'POST':
+        if 'sm' in request.POST:
+            sm = SabtMoshavereForm(request.POST)
+            print('yeeeeeeeeeeeeeeeeee')
+            if sm.is_valid():
+                instance = sm.save(False)
+                instance.profile = request.user.profile
+                instance.save()
+                sm = SabtMoshavereForm()
+                return redirect('HomeApp:index')
+    return render(request ,"home/index.html",{'sm':sm})
 
 def contact(request):
     form = ContactUsForm()
@@ -60,3 +71,6 @@ def lawyers_list(request):
 
 def vakil_profile(request):
     return render(request,"home/vakil_profile.html")
+
+def all_vakill(request):
+    return render(request,"home/all_vakill.html")

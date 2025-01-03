@@ -57,26 +57,34 @@ class ContactUs(models.Model):
     
 class DadKhastCaregory(models.Model):
     type = models.CharField(max_length=20)
+    def __str__(self):
+        return self.type
 
 class DadKhastNevisi(models.Model):
     profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
     subject_type = models.ForeignKey(DadKhastCaregory,models.CASCADE)
     title = models.CharField(max_length=40)
     subject = models.CharField(max_length=50)
-    file = models.FileField(upload_to='bill_requests')
+    file = models.FileField(upload_to='dadkhast_request')
     date = models.DateTimeField(auto_now_add=True)
-
+    def __str__(self):
+        return self.title
+    
 class SabtMoshavere(models.Model):
     profile = models.ForeignKey(Profile,models.CASCADE)
     phone_number = models.IntegerField()
     date = models.DateTimeField(auto_now_add=True)
-
+    def __str__(self):
+        return str(self.phone_number)
+    
 class News(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="news_images")
     title = models.CharField(max_length=100)
     content = RichTextField()
     date = models.DateField(auto_now_add=True)
+    def __str__(self):
+        return self.title
 
 class LegalCategory(models.Model):
     name = models.CharField(max_length=100)

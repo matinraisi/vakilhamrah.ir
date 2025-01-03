@@ -31,3 +31,11 @@ class DadkhastNevisiForm(forms.ModelForm):
         widgets = {
             'subject_type':forms.Select()
         }
+
+class SabtMoshavereForm(forms.ModelForm):
+    class Meta:
+        model = SabtMoshavere
+        fields = ['phone_number']
+        widgets = {
+            'phone_number':forms.NumberInput(attrs={'class':'form-control form-solid text-left','placeholder':'شماره موبایل '})
+        }

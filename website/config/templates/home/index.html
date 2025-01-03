@@ -201,14 +201,19 @@
                             </p>
                         </div>
                         <div class=" col-lg-9 col-md-10 col-xs-12 margin-auto">
-                            <form action="#" method="get" class="input-wrapper input-wrapper-inline ml-lg-auto mr-lg-auto">
-                                <input type="email" class="form-control form-solid text-left"
-                                       name="email" id="email" placeholder="شماره موبایل"
-                                       required="">
-                                <button class="btn btn-gold btn-newsletter mr-4" type="submit">
+                            <form method="post" class="input-wrapper input-wrapper-inline ml-lg-auto mr-lg-auto">
+                                {% csrf_token %}
+                                {{ sm.phone_number }}
+                                {% if user.is_authenticated %}
+                                <button name="sm" class="btn btn-gold btn-newsletter mr-4" type="submit">
                                     ثبت
                                 </button>
                             </form>
+                            {% else %}
+                                <button href="#signin" name="nop" class="btn btn-gold btn-newsletter mr-4" type="button">
+                                    باید وارد شوید
+                                </button>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
