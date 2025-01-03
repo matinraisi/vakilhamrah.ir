@@ -13,7 +13,6 @@ urlpatterns = [
     # path('all_vakill/' , views.all_vakill , name="all_vakill"),
     path('detailvakil/<int:lk>/', views.detailvakil, name='detailvakil'),
     path('lawyers_list/', views.lawyers_list, name="lawyers_list"), 
-
-
+    path('sabt_moshaver/',views.sabt_moshaver,name='sabt_moshaver')
 ]
 

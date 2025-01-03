@@ -80,6 +80,14 @@ def vakil_profile(request):
     return render(request,"home/vakil_profile.html")
 
 def sabt_moshaver(request):
-    return render(request,'')
+    form = SabtMoshavereForm()
+    if request.method == 'POST':
+        form = SabtMoshavereForm(request.POST)
+        if form.is_valid():
+            instance = form.save(False)
+            instance.profile = request.user.profile
+            instance.save()
+            return redirect()
+    return render(request,'home/taking-turns.html',{'form':form})
 
 
