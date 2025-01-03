@@ -18,8 +18,13 @@ class Lawyer(models.Model):
     state = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=10)
     experience = RichTextField()
+<<<<<<< HEAD
     date = models.DateField()
     image = ResizedImageField(upload_to='lawyer_images' , crop=['middle', 'center'] , size=[300,300],quality=75)
+=======
+    date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='lawyer_images')
+>>>>>>> 7486fb3904f70cfb3b83ee512e0a8fd4191d733d
 
     def __str__(self):
         return self.name
@@ -46,20 +51,36 @@ class QaA(models.Model):
     def __str__(self):
         return f'{self.full_name} - {self.message[0:12]}'
     
+
 class ContactUs(models.Model):
     full_name = models.CharField(max_length=20)
     email = models.EmailField()
     message = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.full_name
-
-class BillRequest(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    username = models.CharField(max_length=100)
-    file = models.FileField(upload_to='bill_requests')
-
+    
+class DadKhastCaregory(models.Model):
+    type = models.CharField(max_length=20)
     def __str__(self):
-        return self.username
+        return self.type
+
+class DadKhastNevisi(models.Model):
+    profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    subject_type = models.ForeignKey(DadKhastCaregory,models.CASCADE)
+    title = models.CharField(max_length=40)
+    subject = models.CharField(max_length=50)
+    file = models.FileField(upload_to='dadkhast_request')
+    date = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.title
+    
+class SabtMoshavere(models.Model):
+    profile = models.ForeignKey(Profile,models.CASCADE)
+    phone_number = models.IntegerField()
+    date = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return str(self.phone_number)
     
 class News(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -67,6 +88,8 @@ class News(models.Model):
     title = models.CharField(max_length=100)
     content = RichTextField()
     date = models.DateField(auto_now_add=True)
+    def __str__(self):
+        return self.title
 
 class LegalCategory(models.Model):
     name = models.CharField(max_length=100)

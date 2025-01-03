@@ -23,3 +23,19 @@ class ContactUsForm(forms.ModelForm):
             'email':forms.EmailInput(attrs={'class':'form-control text-left','placeholder':'ایمیل'}),
             'message':forms.Textarea(attrs={'class':'form-control mb-4','placeholder':'سوال'}),
         }
+
+class DadkhastNevisiForm(forms.ModelForm):
+    class Meta:
+        model = DadKhastNevisi
+        fields = ['subject_type','title','subject','file']
+        widgets = {
+            'subject_type':forms.Select()
+        }
+
+class SabtMoshavereForm(forms.ModelForm):
+    class Meta:
+        model = SabtMoshavere
+        fields = ['phone_number']
+        widgets = {
+            'phone_number':forms.NumberInput(attrs={'class':'form-control form-solid text-left','placeholder':'شماره موبایل '})
+        }
