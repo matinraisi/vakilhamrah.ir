@@ -10,5 +10,7 @@ urlpatterns = [
     path('details/', views.detailvakil , name="details"),
     path('download/<int:file_id>/', views.download_file, name='download_file'),
     path('vakil_profile/' , views.vakil_profile , name="vakil_profile"),
+    path('all_vakill/' , views.all_vakill , name="all_vakill"),
+
 ]
 
