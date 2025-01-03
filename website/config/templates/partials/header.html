@@ -149,15 +149,10 @@
                                 <a href="/">خانه</a>
                             </li>
                             <li>
-                                <a href="#">وکلا</a>
-                                <ul>
-                                    {% for lawyers in lawyertp %}
-                                    <li><a href="services-single.html">{{ lawyers.name }}</a></li>
-                                    {% endfor %}
-                                </ul>
+                                <a href="{% url 'HomeApp:lawyers_list' %}">وکلا</a>
                             </li>
                             <li>
-                                <a href="#">دادخواست</a>
+                                <a href="{% url "HomeApp:sabt_moshaver" %}">دادخواست</a>
                             </li>
                             <li>
                                 <a href="#">فایل های حقوقی</a>

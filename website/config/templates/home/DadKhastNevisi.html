@@ -94,17 +94,18 @@
                 </div>
             </div>
             <div class=" section-main">
-                <form action="#" class="form">
+                <form method="post" class="form" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col-sm-6">
                             <label>نوع درخواست</label>
-                            <input type="text" class="form-control" name="first_name" >
+                            {{ form.subject_type }}
                             <small class="d-block form-text mb-5 mt-1 text-gold">برای ورود به حساب کاربری و شناسایی شما در سیستم ضروری است.</small>
 
                         </div>
                         <div class="col-sm-6">
                             <label>موضوع درخواست </label>
-                            <input type="text" class="form-control" name="last_name">
+                            {{ form.title }}
                         </div>
                     </div>
                    
@@ -113,9 +114,9 @@
                         <legend>توضیحات بیشتر</legend>
                         <small class="d-block form-text mb-5 mt-1 text-gold">نوع درخواست خود را انتخاب کنید و نمونه قرار خود رو در باکس توضیحات جای گذاری کنید و یا فایل ان را اپلود کنید</small>
                         <label>اپلود فایل قرار داد</label>
-                        <input type="file" class="form-control">
+                        {{ form.file }}
                         <label>نمونه قرار داد خود را جای گذاری کنید </label>
-                        <textarea  class="form-control" rows="4" cols="50" ></textarea>
+                        {{ form.subject }}
                     </fieldset>
                     <button type="submit" class="btn btn-primary">ثبت درخواست </button>
                 </form>

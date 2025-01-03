@@ -22,13 +22,7 @@ def index(request):
     legalfiles = LegalFiles.objects.all()
     lawyertp = Lawyer.objects.all()
     lawyers = Lawyer.objects.all().order_by('-date')[:4]
-# <<<<<<< HEAD
-    context = {
-        'lawyers': lawyers,
-    }
-    return render (request ,"home/index.html",context)
 
-# =======
     sm = SabtMoshavereForm()
     if request.method == 'POST':
         if 'sm' in request.POST:
@@ -40,8 +34,12 @@ def index(request):
                 instance.save()
                 sm = SabtMoshavereForm()
                 return redirect('HomeApp:index')
-    return render(request ,"home/index.html",{'sm':sm,'lawyers': lawyers})
-# >>>>>>> 356bddf320320a201149e1fbf31bdc58944969e3
+    context = {
+        'lawyers': lawyers,
+        'sm':sm,
+    }
+    return render(request ,"home/index.html",context)
+
 def contact(request):
     form = ContactUsForm()
     if request.method == 'POST':
@@ -81,24 +79,21 @@ def lawyers_list(request):
     page_obj = paginator.get_page(page_number)
     return render(request, 'home/lawyers_list.html', {'page_obj': page_obj})
 
-
-# <<<<<<< HEAD
-def DadKhastNevisi(request):
-    return render(request,"home/DadKhastNevisi.html")
-# =======
 def vakil_profile(request):
     return render(request,"home/vakil_profile.html")
 
 def sabt_moshaver(request):
     form = DadkhastNevisiForm()
     if request.method == 'POST':
-        form = DadkhastNevisiForm(request.POST)
+        form = DadkhastNevisiForm(request.POST,request.FILES)
         if form.is_valid():
             instance = form.save(False)
             instance.profile = request.user.profile
             instance.save()
-            return redirect()
+            form = DadkhastNevisiForm()
+            return redirect('HomeApp:index')
+
     return render(request,'home/DadKhastNevisi.html',{'form':form})
 
 
-# >>>>>>> 356bddf320320a201149e1fbf31bdc58944969e3
+

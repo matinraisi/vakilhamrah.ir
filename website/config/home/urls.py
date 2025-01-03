@@ -11,14 +11,7 @@ urlpatterns = [
     path('vakil_profile/' , views.vakil_profile , name="vakil_profile"),
     path('detailvakil/<int:lk>/', views.detailvakil, name='detailvakil'),
     path('lawyers_list/', views.lawyers_list, name="lawyers_list"), 
-# <<<<<<< HEAD
-    path('DadKhastNevisi/', views.DadKhastNevisi, name="DadKhastNevisi"), 
-# =======
     path('sabt_moshaver/',views.sabt_moshaver,name='sabt_moshaver')
-<<<<<<< HEAD
-]
-=======
-# >>>>>>> 356bddf320320a201149e1fbf31bdc58944969e3
 ]
 
->>>>>>> ccc9f6f5627e884f80dfda677af78252851dd4a1
+
