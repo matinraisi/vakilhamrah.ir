@@ -72,5 +72,5 @@ def lawyers_list(request):
 def vakil_profile(request):
     return render(request,"home/vakil_profile.html")
 
-def all_vakill(request):
-    return render(request,"home/all_vakill.html")
+def sabt_moshaver(request):
+    return render
