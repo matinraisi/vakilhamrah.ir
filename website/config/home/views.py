@@ -88,6 +88,6 @@ def sabt_moshaver(request):
             instance.profile = request.user.profile
             instance.save()
             return redirect()
-    return render(request,'home/taking-turns.html',{'form':form})
+    return render(request,'home/DadKhastNevisi.html',{'form':form})
 
 
